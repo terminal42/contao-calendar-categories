@@ -1,0 +1,18 @@
+services:
+    _defaults:
+        autoconfigure: true
+        autowire: true
+
+    Terminal42\CalendarCategoriesBundle\:
+        resource: ../src/
+        exclude: ../src/{Model,Widget}
+
+    Terminal42\CalendarCategoriesBundle\Picker\CalendarCategoriesPickerProvider:
+        public: false
+        arguments:
+            - "@knp_menu.factory"
+            - "@router"
+        calls:
+            - [setTokenStorage, ["@security.token_storage"]]
+        tags:
+            - { name: contao.picker_provider, priority: 132 }

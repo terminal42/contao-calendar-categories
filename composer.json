@@ -1,0 +1,60 @@
+{
+    "name": "terminal42/contao-calendar-categories",
+    "type": "contao-bundle",
+    "description": "Provides a categories system for calendar events.",
+    "keywords": ["contao", "calendar", "events", "categories"],
+    "license": "LGPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "terminal42 gmbh",
+            "homepage": "https://www.terminal42.ch"
+        }
+    ],
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/terminal42"
+        },
+        {
+            "type": "other",
+            "url": "https://ko-fi.com/terminal42"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/terminal42/contao-calendar-categories/issues",
+        "source": "https://github.com/terminal42/contao-calendar-categories",
+        "forum": "https://community.contao.org"
+    },
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "contao/core-bundle": "^4.13",
+        "contao/calendar-bundle": "^4.13",
+        "doctrine/dbal": "^3.0",
+        "codefog/contao-haste": "^4.25"
+    },
+    "require-dev": {
+        "contao/manager-plugin": "^2.0"
+    },
+    "conflict": {
+        "contao/manager-plugin": "<2.0 || >=3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Terminal42\\CalendarCategoriesBundle\\": "src/"
+        }
+    },
+    "extra": {
+        "contao-manager-plugin": "Terminal42\\CalendarCategoriesBundle\\ContaoManager\\Plugin"
+    },
+    "scripts": {
+        "cs-fixer": "@php tools/ecs/vendor/bin/ecs check src/ --fix --ansi"
+    },
+    "config": {
+        "allow-plugins": {
+            "contao-components/installer": true,
+            "contao/manager-plugin": true,
+            "contao-community-alliance/composer-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
