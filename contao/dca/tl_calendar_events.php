@@ -16,8 +16,7 @@ foreach ($GLOBALS['TL_DCA']['tl_calendar_events']['palettes'] as $name => $palet
 $GLOBALS['TL_DCA']['tl_calendar_events']['fields']['categories'] = [
     'exclude' => true,
     'filter' => true,
-    'inputType' => 'calendarCategoriesPicker',
-    'foreignKey' => 'tl_calendar_category.name',
+    'inputType' => 'picker',
     'eval' => ['multiple' => true, 'fieldType' => 'checkbox'],
     'relation' => [
         'type' => 'haste-ManyToMany',

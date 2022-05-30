@@ -9,8 +9,8 @@
 // Fields
 $GLOBALS['TL_DCA']['tl_module']['fields']['calendar_categories'] = [
     'exclude' => true,
-    'inputType' => 'calendarCategoriesPicker',
-    'foreignKey' => 'tl_calendar_category.name',
+    'inputType' => 'picker',
     'eval' => ['multiple' => true, 'fieldType' => 'checkbox', 'tl_class' => 'clr'],
     'sql' => ['type' => 'blob', 'notnull' => false],
+    'relation' => ['type' => 'lazy', 'table' => 'tl_calendar_category'],
 ];
