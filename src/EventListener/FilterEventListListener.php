@@ -17,7 +17,7 @@ class FilterEventListListener
 {
     public function __invoke(array $events, array $calendars, int $start, int $end, Events $module): array
     {
-        $categories = StringUtil::deserialize($module->calendar_categories);
+        $categories = StringUtil::deserialize($module->cal_categories);
 
         if (!\is_array($categories) || 0 === \count($categories)) {
             return $events;

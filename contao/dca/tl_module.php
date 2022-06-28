@@ -3,11 +3,11 @@
 // Palettes
 \Contao\CoreBundle\DataContainer\PaletteManipulator::create()
     ->addLegend('redirect_legend', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-    ->addField('calendar_categories', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
+    ->addField('cal_categories', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
     ->applyToPalette('eventlist', 'tl_module');
 
 // Fields
-$GLOBALS['TL_DCA']['tl_module']['fields']['calendar_categories'] = [
+$GLOBALS['TL_DCA']['tl_module']['fields']['cal_categories'] = [
     'exclude' => true,
     'inputType' => 'picker',
     'eval' => ['multiple' => true, 'fieldType' => 'checkbox', 'tl_class' => 'clr'],
