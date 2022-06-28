@@ -1,12 +1,12 @@
 <?php
 
-// Palettes
-\Contao\CoreBundle\DataContainer\PaletteManipulator::create()
-    ->addLegend('redirect_legend', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_AFTER)
-    ->addField('cal_categories', 'config_legend', \Contao\CoreBundle\DataContainer\PaletteManipulator::POSITION_APPEND)
-    ->applyToPalette('eventlist', 'tl_module');
+use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
-// Fields
+PaletteManipulator::create()
+    ->addField('cal_categories', 'cal_calendar')
+    ->applyToPalette('eventlist', 'tl_module')
+;
+
 $GLOBALS['TL_DCA']['tl_module']['fields']['cal_categories'] = [
     'exclude' => true,
     'inputType' => 'picker',
