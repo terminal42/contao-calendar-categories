@@ -13,9 +13,6 @@ use Terminal42\CalendarCategoriesBundle\Terminal42CalendarCategoriesBundle;
 
 class Plugin implements BundlePluginInterface
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getBundles(ParserInterface $parser)
     {
         return [
