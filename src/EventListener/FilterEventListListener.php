@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Terminal42\CalendarCategoriesBundle\EventListener;
 
+use Codefog\HasteBundle\Model\DcaRelationsModel;
 use Contao\CoreBundle\ServiceAnnotation\Hook;
 use Contao\Database;
 use Contao\Events;
@@ -24,7 +25,12 @@ class FilterEventListListener
         }
 
         $categories = Database::getInstance()->getChildRecords($categories, 'tl_calendar_category', false, $categories);
-        $eventIds = Model::getReferenceValues('tl_calendar_events', 'categories', $categories);
+
+        if (class_exists(DcaRelationsModel::class)) {
+            $eventIds = DcaRelationsModel::getReferenceValues('tl_calendar_events', 'categories', $categories);
+        } else {
+            $eventIds = Model::getReferenceValues('tl_calendar_events', 'categories', $categories);
+        }
 
         if (0 === \count($eventIds)) {
             return $events;
