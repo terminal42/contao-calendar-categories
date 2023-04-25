@@ -33,7 +33,7 @@ class FilterEventListListener
         }
 
         if (0 === \count($eventIds)) {
-            return $events;
+            return [];
         }
 
         $eventIds = array_map('intval', array_unique($eventIds));
