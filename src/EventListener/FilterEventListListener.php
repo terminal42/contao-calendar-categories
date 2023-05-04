@@ -44,6 +44,8 @@ class FilterEventListListener
                 foreach ($vv as $kkk => $event) {
                     if (!\in_array((int) $event['id'], $eventIds, true)) {
                         unset($events[$k][$kk][$kkk]);
+                    } else {
+                        $events[$k][$kk][$kkk]['categories'] = $categories;
                     }
                 }
 
