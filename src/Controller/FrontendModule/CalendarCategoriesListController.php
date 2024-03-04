@@ -65,15 +65,16 @@ class CalendarCategoriesListController extends AbstractFrontendModuleController
         if (1 === $level && $model->cal_categoriesReset) {
             $resetLabel = $this->translator->trans('categories_list_reset.label', [], 'calendar_categories');
             $resetTitle = $this->translator->trans('categories_list_reset.title', [], 'calendar_categories');
+            $resetActive = null === $request->query->get(self::PARAM_NAME);
             unset($query[self::PARAM_NAME]);
 
             $items[] = [
                 'pageTitle' => null,
                 'title' => StringUtil::specialcharsAttribute($resetTitle),
                 'link' => StringUtil::specialchars($resetLabel),
-                'isActive' => null === $request->query->get(self::PARAM_NAME),
+                'isActive' => $resetActive,
                 'href' => StringUtil::specialcharsUrl($uri->withQuery(http_build_query($query))),
-                'class' => 'reset'.(null === $request->query->get(self::PARAM_NAME) ? ' active' : ''),
+                'class' => 'reset'.($resetActive ? ' active' : ''),
                 'accesskey' => '',
                 'tabindex' => '',
                 'target' => '',
