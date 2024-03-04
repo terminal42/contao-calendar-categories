@@ -39,4 +39,4 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['cal_categoriesFilter'] = [
     'sql' => ['type' => 'boolean', 'default' => false],
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['palettes'][CalendarCategoriesListController::TYPE] = '{title_legend},name,headline,type;{config_legend},cal_categoriesRoot,showLevel,cal_categoriesReset;{redirect_legend},jumpT;{template_legend:hide},customTpl,navigationTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';
+$GLOBALS['TL_DCA']['tl_module']['palettes'][CalendarCategoriesListController::TYPE] = '{title_legend},name,headline,type;{config_legend},cal_categoriesRoot,showLevel,cal_categoriesReset;{redirect_legend},jumpTo;{template_legend:hide},customTpl,navigationTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID';

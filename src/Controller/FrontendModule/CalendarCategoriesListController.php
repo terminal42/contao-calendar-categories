@@ -73,7 +73,7 @@ class CalendarCategoriesListController extends AbstractFrontendModuleController
                 'link' => StringUtil::specialchars($resetLabel),
                 'isActive' => null === $request->query->get(self::PARAM_NAME),
                 'href' => StringUtil::specialcharsUrl($uri->withQuery(http_build_query($query))),
-                'class' => 'reset',
+                'class' => 'reset'.(null === $request->query->get(self::PARAM_NAME) ? ' active' : ''),
                 'accesskey' => '',
                 'tabindex' => '',
                 'target' => '',
@@ -88,7 +88,7 @@ class CalendarCategoriesListController extends AbstractFrontendModuleController
             $item['pageTitle'] = null;
             $item['link'] = StringUtil::specialchars($category->name);
             $item['isActive'] = (int) $category->id === (int) $request->query->get(self::PARAM_NAME);
-            $item['class'] = 'category';
+            $item['class'] = 'category'.($item['isActive'] ? ' active' : '');
             $item['accesskey'] = '';
             $item['tabindex'] = '';
             $item['target'] = '';
