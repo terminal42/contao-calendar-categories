@@ -10,17 +10,31 @@ use Contao\Database;
 use Contao\Events;
 use Contao\StringUtil;
 use Haste\Model\Model;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Terminal42\CalendarCategoriesBundle\Controller\FrontendModule\CalendarCategoriesListController;
 
 /**
  * @Hook("getAllEvents")
  */
 class FilterEventListListener
 {
+    private RequestStack $requestStack;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->requestStack = $requestStack;
+    }
+
     public function __invoke(array $events, array $calendars, int $start, int $end, Events $module): array
     {
-        $categories = StringUtil::deserialize($module->cal_categories);
+        $categories = StringUtil::deserialize($module->cal_categories, true);
+        $request = $this->requestStack->getCurrentRequest();
 
-        if (!\is_array($categories) || 0 === \count($categories)) {
+        if ($module->cal_categoriesFilter && $request && ($categoryId = $request->query->get(CalendarCategoriesListController::PARAM_NAME))) {
+            $categories[] = (int) $categoryId;
+        }
+
+        if ([] === $categories) {
             return $events;
         }
 

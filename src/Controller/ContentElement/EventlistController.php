@@ -21,7 +21,7 @@ class EventlistController
     {
         $moduleModel = ModuleModel::findByPk($model->module);
 
-        if (null === $moduleModel || $moduleModel->type !== 'eventlist') {
+        if (null === $moduleModel || 'eventlist' !== $moduleModel->type) {
             return new Response();
         }
 
