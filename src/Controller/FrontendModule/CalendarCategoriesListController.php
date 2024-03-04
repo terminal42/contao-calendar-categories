@@ -59,7 +59,7 @@ class CalendarCategoriesListController extends AbstractFrontendModuleController
             $uri = new Uri($jumpTo->getAbsoluteUrl());
         } else {
             $uri = new Uri($request->getUri());
-            parse_str($uri->getQuery(), $query);
+            $query = $request->query->all();
         }
 
         if (1 === $level && $model->cal_categoriesReset) {
