@@ -4,6 +4,7 @@ use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
 PaletteManipulator::create()
     ->addField('cal_categories', 'cal_calendar')
+    ->applyToPalette('calendar', 'tl_module')
     ->applyToPalette('eventlist', 'tl_module')
 ;
 
