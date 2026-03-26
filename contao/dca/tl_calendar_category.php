@@ -1,8 +1,10 @@
 <?php
 
+use Contao\DataContainer;
 use Contao\DC_Table;
+use Contao\System;
 
-\Contao\System::loadLanguageFile('tl_calendar');
+System::loadLanguageFile('tl_calendar');
 
 $GLOBALS['TL_DCA']['tl_calendar_category'] = [
     // Config
@@ -23,10 +25,10 @@ $GLOBALS['TL_DCA']['tl_calendar_category'] = [
     // List
     'list' => [
         'sorting' => [
-            'mode' => 5,
+            'mode' => DataContainer::MODE_TREE,
             'icon' => 'bundles/terminal42calendarcategories/icon.png',
             'panelLayout' => 'search',
-			'rootPaste' => true,
+            'rootPaste' => true,
         ],
         'label' => [
             'fields' => ['name'],

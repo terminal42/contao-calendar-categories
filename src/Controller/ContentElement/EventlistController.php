@@ -5,23 +5,21 @@ declare(strict_types=1);
 namespace Terminal42\CalendarCategoriesBundle\Controller\ContentElement;
 
 use Contao\ContentModel;
-use Contao\CoreBundle\ServiceAnnotation\ContentElement;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\ModuleEventlist;
 use Contao\ModuleModel;
 use Contao\StringUtil;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-/**
- * @ContentElement(category="includes")
- */
+#[AsContentElement(category: 'includes')]
 class EventlistController
 {
     public function __invoke(Request $request, ContentModel $model, string $section): Response
     {
-        $moduleModel = ModuleModel::findByPk($model->module);
+        $moduleModel = ModuleModel::findById($model->module);
 
-        if (null === $moduleModel || $moduleModel->type !== 'eventlist') {
+        if (null === $moduleModel || 'eventlist' !== $moduleModel->type) {
             return new Response();
         }
 

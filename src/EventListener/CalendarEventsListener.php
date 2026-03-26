@@ -4,22 +4,17 @@ declare(strict_types=1);
 
 namespace Terminal42\CalendarCategoriesBundle\EventListener;
 
-use Contao\CoreBundle\ServiceAnnotation\Callback;
+use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\Input;
 use Doctrine\DBAL\Connection;
 
 class CalendarEventsListener
 {
-    private Connection $connection;
-
-    public function __construct(Connection $connection)
+    public function __construct(private readonly Connection $connection)
     {
-        $this->connection = $connection;
     }
 
-    /**
-     * @Callback(table="tl_calendar_events", target="fields.categories.options_callback")
-     */
+    #[AsCallback(table: 'tl_calendar_events', target: 'fields.categories.options_callback')]
     public function onCategoriesOptionsCallback(): array
     {
         // Do not generate the options for other views than listings

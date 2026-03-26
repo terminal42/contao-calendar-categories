@@ -1,6 +1,6 @@
 <?php
 
-$GLOBALS['TL_DCA']['tl_content']['palettes']['eventlist'] = '{type_legend},type,headline;{include_legend},module,cal_categories;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID;{invisible_legend:hide},invisible,start,stop';
+$GLOBALS['TL_DCA']['tl_content']['palettes']['eventlist'] = '{type_legend},type,headline;{include_legend},module,cal_categories;{protected_legend:collapsed},protected;{expert_legend:collapsed},guests,cssID;{invisible_legend:collapsed},invisible,start,stop';
 
 $GLOBALS['TL_DCA']['tl_content']['fields']['cal_categories'] = [
     'exclude' => true,

@@ -1,6 +1,5 @@
 <?php
 
-// Palettes
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
 
 $paletteManipulator = PaletteManipulator::create()
@@ -14,7 +13,6 @@ foreach ($GLOBALS['TL_DCA']['tl_calendar_events']['palettes'] as $name => $palet
     }
 }
 
-// Fields
 $GLOBALS['TL_DCA']['tl_calendar_events']['fields']['categories'] = [
     'exclude' => true,
     'filter' => true,
