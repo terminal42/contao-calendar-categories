@@ -6,6 +6,7 @@ use Terminal42\CalendarCategoriesBundle\Controller\FrontendModule\CalendarCatego
 PaletteManipulator::create()
     ->addField('cal_categories', 'config_legend', PaletteManipulator::POSITION_APPEND)
     ->addField('cal_categoriesFilter', 'config_legend', PaletteManipulator::POSITION_APPEND)
+    ->applyToPalette('calendar', 'tl_module')
     ->applyToPalette('eventlist', 'tl_module')
 ;
 

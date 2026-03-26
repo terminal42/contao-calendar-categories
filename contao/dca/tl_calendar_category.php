@@ -1,12 +1,14 @@
 <?php
 
+use Contao\DC_Table;
+
 \Contao\System::loadLanguageFile('tl_calendar');
 
 $GLOBALS['TL_DCA']['tl_calendar_category'] = [
     // Config
     'config' => [
         'label' => $GLOBALS['TL_LANG']['tl_calendar']['categories'][0],
-        'dataContainer' => 'Table',
+        'dataContainer' => DC_Table::class,
         'enableVersioning' => true,
         'backlink' => 'do=calendar',
         'markAsCopy' => 'name',
@@ -24,6 +26,7 @@ $GLOBALS['TL_DCA']['tl_calendar_category'] = [
             'mode' => 5,
             'icon' => 'bundles/terminal42calendarcategories/icon.png',
             'panelLayout' => 'search',
+			'rootPaste' => true,
         ],
         'label' => [
             'fields' => ['name'],
