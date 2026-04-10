@@ -1,6 +1,7 @@
 <?php
 
 use Contao\CoreBundle\DataContainer\PaletteManipulator;
+use Terminal42\CalendarCategoriesBundle\Picker\CalendarCategoriesPickerProvider;
 
 $paletteManipulator = PaletteManipulator::create()
     ->addLegend('category_legend', 'title_legend', PaletteManipulator::POSITION_AFTER)
@@ -17,7 +18,7 @@ $GLOBALS['TL_DCA']['tl_calendar_events']['fields']['categories'] = [
     'exclude' => true,
     'filter' => true,
     'inputType' => 'picker',
-    'eval' => ['multiple' => true, 'fieldType' => 'checkbox', 'tl_class' => 'clr'],
+    'eval' => ['multiple' => true, 'fieldType' => 'checkbox', 'context' => CalendarCategoriesPickerProvider::CONTEXT, 'tl_class' => 'clr'],
     'relation' => [
         'type' => 'haste-ManyToMany',
         'load' => 'lazy',

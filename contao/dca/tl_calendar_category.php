@@ -3,11 +3,12 @@
 use Contao\DataContainer;
 use Contao\DC_Table;
 
+$GLOBALS['TL_CSS'][] = 'bundles/terminal42calendarcategories/backend.css';
+
 $GLOBALS['TL_DCA']['tl_calendar_category'] = [
     'config' => [
         'dataContainer' => DC_Table::class,
         'enableVersioning' => true,
-        'backlink' => 'do=calendar',
         'markAsCopy' => 'name',
         'sql' => [
             'keys' => [
