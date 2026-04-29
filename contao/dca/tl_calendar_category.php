@@ -48,7 +48,7 @@ $GLOBALS['TL_DCA']['tl_calendar_category'] = [
             'exclude' => true,
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'tl_class' => 'w50'],
-            'sql' => ['type' => 'string', 'default' => ''],
+            'sql' => ['type' => 'string', 'length' => 255, 'default' => ''],
         ],
     ],
 ];
